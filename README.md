@@ -1,14 +1,15 @@
 Densecoin v8.4.2 - a lite version of Litecoin using scrypt as a proof of work scheme.
 
-- 2.5 minute block targets
+- 1 minute block targets
 - 12 blocks (~30 minutes) to retarget difficulty
-- Subsidy halves every 840,000 blocks (~4 years)
-- ~1.67 billion total coins
-- 1000 coins per block
+- Subsidy halves every 500,000 blocks (~2 3/4 years)
+- ~250 million total coins
+- 50 coins per block
 - Scrypt based
  
-Download
-See http://bit.ly/1ccGDK7 Stay tuned for new download location as it becomes available
+Download source from
+Https://github.com/dynius/densecoin.git
+Stay tuned for new download location as it becomes available
 
 Development process
 ===================
@@ -36,6 +37,4 @@ in this manner will have their corresponding issue labeled 'stagnant'.
 
 Issues with no commits will be given a similar warning, and closed after
 15 days from their last activity. Issues closed in this manner will be 
-labeled 'stale'. 
-
-Check out http://bit.ly/1ccGDK7 for more info about the development.
+labeled 'stale'.
