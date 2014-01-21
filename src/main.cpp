@@ -29,7 +29,7 @@ CTxMemPool mempool;
 unsigned int nTransactionsUpdated = 0;
 
 map<uint256, CBlockIndex*> mapBlockIndex;
-uint256 hashGenesisBlock("0x");
+uint256 hashGenesisBlock("0x13695a9d8ac3d7b98ca21b4b28de4380680ae40e244525b52d5ee55a5bcdce86");
 static CBigNum bnProofOfWorkLimit(~uint256(0) >> 20); // Densecoin: starting difficulty is 1 / 2^12
 CBlockIndex* pindexGenesisBlock = NULL;
 int nBestHeight = -1;
@@ -2015,7 +2015,7 @@ bool LoadBlockIndex(bool fAllowNew)
         pchMessageStart[1] = 0xc1;
         pchMessageStart[2] = 0xb7;
         pchMessageStart[3] = 0xdc;
-        hashGenesisBlock = uint256("0x");
+        hashGenesisBlock = uint256("0x8694c6e30bcae296f708b80d3e4f0953941d40807b8f2d33e48399899df9d4bf");
     }
 
     //
@@ -2034,7 +2034,27 @@ bool LoadBlockIndex(bool fAllowNew)
         if (!fAllowNew)
             return false;
 
-        // Genesis Block:
+        // Merkle: 0x8e30db3a701663f222b29905ef80b0e55a67c4afb7ee716f78bd64bb435c76b1
+
+        // Testnet Genesis Block:
+        //block.nTime = 628905599
+        //block.nNonce = 301675
+        //block.GetHash = 8694c6e30bcae296f708b80d3e4f0953941d40807b8f2d33e48399899df9d4bf
+        //CBlock(hash=8694c6e30bcae296f708, PoW=0000003020463bcc3ce6, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=8e30db3a70, nTime=628905599, nBits=1e0ffff0, nNonce=301675, vtx=1)
+        //CTransaction(hash=8e30db3a70, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+        //CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104374d61696e3a204465632035746820313938392030303a30303a303020546573743a204465632035746820313938392032333a35393a3539)
+        //CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
+        //vMerkleTree: 8e30db3a70
+
+        //Mainnet Genesis Block:
+        //block.nTime = 628819200
+        //block.nNonce = 27745
+        //block.GetHash = 13695a9d8ac3d7b98ca21b4b28de4380680ae40e244525b52d5ee55a5bcdce86
+        //CBlock(hash=13695a9d8ac3d7b98ca2, PoW=0000071d99d73075af02, ver=1, hashPrevBlock=00000000000000000000, hashMerkleRoot=8e30db3a70, nTime=628819200, nBits=1e0ffff0, nNonce=27745, vtx=1)
+        //CTransaction(hash=8e30db3a70, ver=1, vin.size=1, vout.size=1, nLockTime=0)
+        //CTxIn(COutPoint(0000000000, -1), coinbase 04ffff001d0104374d61696e3a204465632035746820313938392030303a30303a303020546573743a204465632035746820313938392032333a35393a3539)
+        //CTxOut(nValue=50.00000000, scriptPubKey=040184710fa689ad5023690c80f3a4)
+        //vMerkleTree: 8e30db3a70
 
 
         // Genesis block
@@ -2052,22 +2072,22 @@ bool LoadBlockIndex(bool fAllowNew)
         block.nVersion = 1;
         block.nTime    = 628819200;
         block.nBits    = 0x1e0ffff0;
-        block.nNonce   = 0;
+        block.nNonce   = 27745;
 
         if (fTestNet)
         {
             block.nTime    = 628905599;
-            block.nNonce   = 0;
+            block.nNonce   = 301675;
         }
 
         //// debug print
         printf("%s\n", block.GetHash().ToString().c_str());
         printf("%s\n", hashGenesisBlock.ToString().c_str());
         printf("%s\n", block.hashMerkleRoot.ToString().c_str());
-        assert(block.hashMerkleRoot == uint256("0x"));
+        assert(block.hashMerkleRoot == uint256("0x8e30db3a701663f222b29905ef80b0e55a67c4afb7ee716f78bd64bb435c76b1"));
 
         // If genesis block hash does not match, then generate new genesis hash.
-        if (true && block.GetHash() != hashGenesisBlock)
+        if (false && block.GetHash() != hashGenesisBlock)
         {
             printf("Searching for genesis block...\n");
             // This will figure out a valid hash and Nonce if you're
