@@ -836,9 +836,9 @@ int64 static GetBlockValue(int nHeight, int64 nFees)
 }
 
 static int64 nTargetTimespan = 1 * 24 * 60 * 60; // Densecoin: 1 days
-static int64 nTargetSpacing = 1 * 60; // Densecoin: 1 minutes
+static int64 nTargetSpacing = 1 * 120; // Densecoin: 2 minutes
 static int64 nInterval = nTargetTimespan / nTargetSpacing;
-static int64 nReTargetHistoryFact = 12;
+static int64 nReTargetHistoryFact = 150;
 
 //
 // minimum amount of work that could possibly be required nTime after

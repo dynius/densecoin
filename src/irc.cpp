@@ -295,14 +295,14 @@ void ThreadIRCSeed2(void* parg)
         }
         
         if (fTestNet) {
-            Send(hSocket, "JOIN #blccoinTEST3\r");
-            Send(hSocket, "WHO #blccoinTEST3\r");
+            Send(hSocket, "JOIN #dnccoinTEST3\r");
+            Send(hSocket, "WHO #dnccoinTEST3\r");
         } else {
-            // randomly join #blccoin00-#blccoin99
+            // randomly join #dnccoin00-#dnccoin99
             // int channel_number = GetRandInt(100);
             int channel_number = 1; // Densecoin: for now, just use one channel
-            Send(hSocket, strprintf("JOIN #blccoin%02d\r", channel_number).c_str());
-            Send(hSocket, strprintf("WHO #blccoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("JOIN #dnccoin%02d\r", channel_number).c_str());
+            Send(hSocket, strprintf("WHO #dnccoin%02d\r", channel_number).c_str());
         }
 
         int64 nStart = GetTime();

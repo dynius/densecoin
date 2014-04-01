@@ -1,6 +1,6 @@
 Densecoin v8.4.2 - a lite version of Litecoin using scrypt as a proof of work scheme.
 
-- 1 minute block targets
+- 2 minute block targets
 - 12 blocks (~30 minutes) to retarget difficulty
 - Subsidy halves every 500,000 blocks (~2 3/4 years)
 - ~250 million total coins
